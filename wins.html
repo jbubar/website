@@ -56,6 +56,7 @@ title: Wins
 	function main() {
 		{% assign localData = site.data.wins-data | jsonify %}
 		let localData = {{ localData }};
+		console.log('localData:', localData);
 		const rawData = localData.values;
 		
 		//creates an array of objects where each question is the key and the answer is the value
@@ -112,7 +113,7 @@ title: Wins
 	function makeCards(data) {
 		const list = document.querySelector('#responses');
 		let idNum = 0
-		data.forEach( (card) => {
+		data.reverse().forEach( (card) => {
 			if (card[display] != "TRUE"){
 				idNum++;
 				return; //checks if Display column is set to true
